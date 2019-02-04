@@ -12,9 +12,10 @@ class FirstViewController: UIViewController {
   
   static let shared = CameraHandler()
   
-  @IBOutlet weak var displayImage: UIImageView!
-  
   fileprivate var currentVC: UIViewController!
+  
+  @IBOutlet weak var displayImage: UIImageView!
+  @IBOutlet weak var displayImage2: UIImageView!
   
   //MARK: Internal Properties
   var imagePickedBlock: ((UIImage) -> Void)?
@@ -33,6 +34,7 @@ class FirstViewController: UIViewController {
     CameraHandler.shared.showActionSheet(vc: self)
     CameraHandler.shared.imagePickedBlock = { (image) in
       self.displayImage.image = image
+      self.displayImage2.image = image
     }
   }
   
