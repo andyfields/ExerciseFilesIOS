@@ -65,8 +65,9 @@ extension CameraHandler: UIImagePickerControllerDelegate, UINavigationController
     currentVC.dismiss(animated: true, completion: nil)
   }
   
-  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-    if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    //print ("UIImagePickerControllerOriginalImage: \(UIImagePickerControllerOriginalImage)")
+    if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
       self.imagePickedBlock?(image)
     }else{
       print("Something went wrong")
